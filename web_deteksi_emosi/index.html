@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Ekspresi Wajah AI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Deteksi Emosi Wajah</h1>
+            <p>Unggah foto wajah untuk mengetahui ekspresimu (Senang/Sedih)</p>
+        </header>
+
+        <main>
+            <div class="image-area">
+                <img id="preview-image" src="#" alt="Preview Gambar" class="hidden">
+                <div id="placeholder-text" class="placeholder">
+                    <span>📷</span>
+                    <p>Belum ada gambar</p>
+                </div>
+            </div>
+
+            <div class="controls-area">
+                <input type="file" id="image-selector" accept="image/*" class="hidden">
+                <label for="image-selector" class="btn-upload">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    Unggah Gambar
+                </label>
+                
+                <p id="status-text" class="status-loading">Memuat Model AI...</p>
+            </div>
+
+            <div id="result-area" class="result-area hidden">
+                <h3>Hasil Analisis:</h3>
+                <p id="prediction-text" class="prediction-text"></p>
+                <p id="probability-text" class="probability-text"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Proyek Skripsi - Klasifikasi Citra TensorFlow.js</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

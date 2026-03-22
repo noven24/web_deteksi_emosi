@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-border: rgba(255, 255, 255, 0.4);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --happy-color: #10b981;
+    --sad-color: #f43f5e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: var(--surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--surface-border);
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.image-area {
+    width: 100%;
+    height: 280px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.image-area:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(255,255,255,0.8);
+}
+
+#preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.placeholder {
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.placeholder span {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+    transition: transform 0.3s ease;
+}
+
+.image-area:hover .placeholder span {
+    transform: scale(1.1);
+}
+
+.placeholder p {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.controls-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.btn-upload {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-upload svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-upload:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-upload:active {
+    transform: translateY(1px);
+}
+
+#status-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.03);
+    color: var(--text-muted);
+}
+
+.status-loading { color: #f59e0b !important; }
+.status-ready { color: #10b981 !important; }
+
+.result-area {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary-color);
+    transform: translateY(0);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-area h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.prediction-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 5px 0 10px;
+    line-height: 1;
+}
+
+.probability-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    margin-top: 35px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
